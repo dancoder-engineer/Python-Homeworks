@@ -13,14 +13,14 @@ class Card():
             self.value = int(rank)
 
     def __str__(self):
-        return self.rank + " of " + self.suit + "s"
+        return self.rank + " of " + self.suit
 
 
 class Deck():
 
     def __init__(self):
         ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
-        suits = ["Club", "Spade", "Diamond", "Heart"]
+        suits = ["Clubs", "Spades", "Diamonds", "Hearts"]
         self.test = 9
         self.cards = []
         for i in ranks:
