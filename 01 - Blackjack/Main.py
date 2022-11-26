@@ -1,14 +1,48 @@
 import DeckOfCards
 
 deck = DeckOfCards.Deck()
-#deck.seeDeck()
-deck.test = 99
-
 myHand = []
-for i in range(0, 5):
+
+
+def dealMyHand(): 
+  for i in range(0, 2):
     myHand.append(deck.dealCard())
 
-for i in myHand:
+def myHandValue():
+  totalValue = 0
+  acePlaces = []
+  index = 0
+
+  while index < len(myHand):
+    totalValue += myHand[index].value
+    if myHand[index].rank == "Ace":
+        acePlaces.append(index)
+    index += 1
+
+  i = 0
+
+  if totalValue > 21 and len(acePlaces) > 0:
+    while i < len(acePlaces):
+        totalValue -= 10
+        i += 1
+        if totalValue < 21:
+            break
+
+ 
+    
+
+
+
+  return totalValue
+
+def showMyHand():
+  for i in myHand:
     print(i)
 
-deck.__init__()
+def main():
+  dealMyHand()
+  showMyHand()
+  print()
+  print(myHandValue())
+
+main()
