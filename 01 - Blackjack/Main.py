@@ -7,6 +7,7 @@ playerMoney = 500
 keepPlaying = True
 
 def dealerPlay():
+  print()
   dealerValue = 0
   while dealerValue < 17:
     dealerHand.append(deck.dealCard())
@@ -53,6 +54,7 @@ def dealersCard():
 
 
 def checkMoney():
+  global keepPlaying
   if playerMoney <= 0:
     print("You are now broke, and will starve to death beginning immediately.")
     print("Sorry, you will not starve to death THAT soon, because you're")
@@ -96,12 +98,46 @@ def playerPlay():
       elif likeHit == "Y":
         break
 
+def getBet():
+    global keepPlaying
+    while True:
+      try:
+        print("You have $" + str(playerMoney) + ".")
+        bet = input("How much would you like to bet? ")
+        bet = int(bet)
+    #    if bet == 9000:
+    #      keepPlaying = False
+    #      break
+        if bet > playerMoney:
+          continue
+      except:
+        print("Please input a number.")
+      else:
+        return bet
 
-        
+def checkWhoWon(playerScore, dealerScore, bet):
+  global playerMoney
+  if playerScore > dealerScore:
+    print("You win!")
+    playerMoney += bet
+  elif dealerScore > playerScore:
+    print("You lose!")
+    playerMoney -= bet
+  else:
+    print("It's a tie.")
+
+
 
 if __name__ == "__main__":
-  dealerScore = 0
-  playerScore = playerPlay()
-  if playerScore <= 21:
-    dealerScore = dealerPlay()
-
+  while keepPlaying:
+    playerHand = []
+    dealerHand = []
+    playerScore = 0
+    dealerScore = 0
+    bet = getBet()
+    playerScore = playerPlay()
+    if playerScore <= 21:
+      dealerScore = dealerPlay()
+   # print(playerScore, dealerScore, bet)  
+    checkWhoWon(playerScore, dealerScore, bet)  
+    checkMoney()
