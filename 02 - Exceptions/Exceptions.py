@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 
 def part1():
   for i in ['a', 2,'c']:
@@ -24,6 +25,5 @@ def part3():
       else:
         print("The square of your number is " + str(base ** 2))
         break
-
-
-part3()
+      
+#part3()
