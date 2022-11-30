@@ -10,12 +10,20 @@ def read_page(url, position):
     return tags[position-1].get('href', None)
 
 
-#url = "http://py4e-data.dr-chuck.net/known_by_Fikret.html"
-url = "http://py4e-data.dr-chuck.net/known_by_Neeve.html"
-position = 18
-count = 7
+url = "http://py4e-data.dr-chuck.net/known_by_Fikret.html"
+#url = "http://py4e-data.dr-chuck.net/known_by_Neeve.html"
+position = 3
+count = 4
 
 for x in range(-1, count):
     print("Retrieving: " + url)
     url = read_page(url, position)
 
+
+
+def hi(person):
+    print("Hi, " + person)
+
+hiHui = hi("Hui Hui")
+
+hiHui
