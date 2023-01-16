@@ -48,7 +48,7 @@ class Square{
 		this.sideLength = sideLength
 	}
 
-	permieter() {
+	get perimeter() {
 		return this.sideLength * 4
 	}
 
@@ -84,3 +84,39 @@ class CommonMath{
 }
 
 console.log(CommonMath.square(5))
+
+
+
+class Square2{
+
+    #sideLength
+    
+	constructor(sideLength) {
+		this.#sideLength = sideLength
+	}
+
+	get perimeter() {
+		return this.#sideLength * 4
+	}
+
+    get area() {
+        return this.#sideLength * this.#sideLength
+    }
+
+    set area(newArea) {
+        this.#sideLength = Math.sqrt(newArea)
+    }
+
+    get sl(){
+        return this.#sideLength
+    }
+
+}
+
+let three = new Square2(3)
+
+console.log("Area: " + three.area)
+console.log("Perimeter: " + three.perimeter)
+
+three.area = 49
+console.log("new Side Length: " + three.sl)
