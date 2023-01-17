@@ -22,7 +22,7 @@ class Animal {
 
 let huihui = new Animal("Hui Hui", "Guinea Pig")
 
-huihui.sayHello()
+// huihui.sayHello()
 
 //having the # in front (needs to be declared first) means you cant change ferom outside the classd
 
@@ -64,11 +64,11 @@ class Square{
 
 let five = new Square(5)
 
-console.log("Area: " + five.area)
-console.log("Perimeter: " + five.perimeter)
+// console.log("Area: " + five.area)
+// console.log("Perimeter: " + five.perimeter)
 
-five.area = 49
-console.log("new Side Length: " + five.sideLength)
+// five.area = 49
+// console.log("new Side Length: " + five.sideLength)
 
 
 
@@ -83,7 +83,7 @@ class CommonMath{
     }
 }
 
-console.log(CommonMath.square(5))
+//console.log(CommonMath.square(5))
 
 
 
@@ -115,8 +115,33 @@ class Square2{
 
 let three = new Square2(3)
 
-console.log("Area: " + three.area)
-console.log("Perimeter: " + three.perimeter)
+// console.log("Area: " + three.area)
+// console.log("Perimeter: " + three.perimeter)
 
-three.area = 49
-console.log("new Side Length: " + three.sl)
+// three.area = 49
+// console.log("new Side Length: " + three.sl)
+
+
+class Circle{
+    #radius
+    constructor(radius){
+        this.#radius=radius
+    }
+
+    get diameter(){
+        return this.#radius * 2
+    }
+
+    get circumference(){
+        return Math.PI * this.diameter
+    }
+
+    get area(){
+        return Math.PI * this.#radius ** 2
+    }
+}
+
+let circ = new Circle(1)
+console.log("Diameter: " + circ.diameter)
+console.log("Circumference: " + circ.circumference)
+console.log("Area: " + circ.area)
