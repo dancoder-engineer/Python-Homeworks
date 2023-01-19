@@ -20,9 +20,16 @@ class Animal {
 	}
 }
 
-let huihui = new Animal("Hui Hui", "Guinea Pig")
+class GuineaPig extends Animal{
 
-// huihui.sayHello()
+    constructor(name){
+        super(name, "Guinea Pig")
+    }
+}
+
+let huihui = new GuineaPig("Hui Hui")
+
+huihui.sayHello()
 
 //having the # in front (needs to be declared first) means you cant change ferom outside the classd
 
